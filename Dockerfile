@@ -16,7 +16,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy the Django project into the container
 COPY . /app
 
-RUN python manage.py migrate
 
 # Expose the port on which the Django app runs
 EXPOSE 8000
