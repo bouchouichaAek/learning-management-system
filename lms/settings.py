@@ -86,20 +86,14 @@ ASGI_APPLICATION = 'lms.asgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-
     'default': {
-        'ENGINE': os.getenv('DATABASES_ENGINE'),
-        'NAME': os.getenv('DATABASES_NAME'),
-        'USER': os.getenv('DATABASES_USER'),
-        'PASSWORD': os.getenv('DATABASES_PASSWORD'),
-        'HOST': os.getenv('DATABASES_HOST'),
-        'PORT': os.getenv('DATABASES_PORT'),
+        'ENGINE': os.getenv('DATABASES_ENGINE'),  # Default to SQLite if not set
+        'NAME': os.getenv('DATABASES_NAME'),  # Default to SQLite database file
+        'USER': os.getenv('DATABASES_USER', ''),  # Empty string as default
+        'PASSWORD': os.getenv('DATABASES_PASSWORD', ''),  # Empty string as default
+        'HOST': os.getenv('DATABASES_HOST', 'localhost'),  # Default to localhost
+        'PORT': os.getenv('DATABASES_PORT', '5432'),  # Default to PostgreSQL port
     }
-
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
 }
 
 
@@ -125,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ar-dz'
 
 TIME_ZONE = 'UTC'
 
